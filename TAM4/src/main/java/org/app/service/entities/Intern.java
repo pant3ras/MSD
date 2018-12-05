@@ -44,14 +44,12 @@ public class Intern implements Serializable {
 //-----------------------	
 	//--------------------------------------
 	//Relationship between intern and manager
-	
 	@ManyToOne
 	@JoinColumn(name="students_int", nullable=false)
 	private Intern students_int;
 	
 	//--------------------------------------
 	//Relationship between intern and Internship
-	
 	@ManyToOne
 	@JoinColumn(name="No_Of_Intern", nullable=false)
 	private Intern noOfIntern;

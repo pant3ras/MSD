@@ -14,6 +14,7 @@ import javax.persistence.*;
 public class Benefits implements Serializable {
 
 	@Id 
+	@Column(name="Benefit_ID")
 	private int benefitID;
 	@Column(name="Benefit_Name")
 	private String benefitName;
@@ -26,7 +27,6 @@ public class Benefits implements Serializable {
 	private Intern intern;
 	
 	//relationship between Benefits and Manager
-	
 	@ManyToOne
 	@JoinColumn(name="benefit_mng", nullable=false)
 	private Manager manager;
@@ -35,7 +35,14 @@ public class Benefits implements Serializable {
 
 	public Benefits() {
 		super();
-	}   
+	} 
+	
+	//to be deleted
+	public Benefits(Object object, String string) {
+		// TODO Auto-generated constructor stub
+	}
+	//if the test work
+	
 	public int getBenefitID() {
 		return this.benefitID;
 	}

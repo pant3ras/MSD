@@ -3,6 +3,7 @@ package org.app.service.entities;
 import java.io.Serializable;
 import java.lang.String;
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -17,19 +18,25 @@ public class Internship implements Serializable {
 
 	   
 	@Id @GeneratedValue
+	@Column(name="Int_ID")
 	private int internshipID;
+	@Column(name="Internship_name")
 	private String internshipName;
+	@Column(name="Internship_Description")
 	private String internshipDescription;
+	@Column(name="Int_Start_date")
 	private Date int_start_date;
+	@Column(name="Int_End_Date")
 	private Date int_end_date;;
 	
 	
 	//Relationship between Internship and Manager.
+
 	@OneToOne private Manager manager;
 	
 	//----------------------------------
 	//Relationship between Internships and Intern
-	
+
 	@OneToMany(mappedBy="noOfIntern")
 	private Set<Intern> noOfIntern;
 
@@ -53,6 +60,7 @@ public class Internship implements Serializable {
 	public Internship() {
 		super();
 	}   
+
 	public int getInternshipID() {
 		return this.internshipID;
 	}
@@ -87,6 +95,10 @@ public class Internship implements Serializable {
 
 	public void setInt_end_date(Date int_end_date) {
 		this.int_end_date = int_end_date;
+	}
+	public void setInternships(List<Project> releasesInt) {
+		// TODO Auto-generated method stub
+		
 	}   
    
 }

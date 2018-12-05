@@ -17,11 +17,17 @@ public class Manager implements Serializable {
 
 	   
 	@Id @GeneratedValue
+	@Column(name="Manager_ID")
 	private Integer managerID;
+	
+	@Column(name="Manager_Name")
 	private String managerName;
+	
+	@Column(name="Manager_Email")
 	private String managerEmail;
 	//-----------------------------------------
 	//Relationship between manager and benefits
+
 	@OneToMany(mappedBy="manager")
 	private Set<Benefits> mngName;
 
@@ -32,12 +38,14 @@ public class Manager implements Serializable {
 		this.mngName = mngName;
 	}
 	//--------------------------------------
+	
+
 	@OneToOne private Project project;
+	
 	@OneToOne private Internship internship;
 	
 	//--------------------------------------
 	//Relationship between intern and manager
-	
 	@OneToMany(mappedBy="students_int")
 	private Set<Intern> students_int;
 

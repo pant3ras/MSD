@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.lang.String;
 import java.sql.Date;
 import java.util.Set;
-
 import javax.persistence.*;
 
 /**
@@ -17,10 +16,17 @@ public class Project implements Serializable {
 
 	   
 	@Id @GeneratedValue
+	@Column(name="Project_ID")
 	private int projectID;
+	@Column(name="Project_Name")
 	private String projectName;
+	@Column(name="Project_Description")
 	private String projectDescription;
+
+	@Column(name="Project_StartDate")
 	private Date project_start_date;
+	
+	@Column(name="Project_EndDate")
 	private Date project_end_date;
 	
 	//Relationship between Project and Manager.
