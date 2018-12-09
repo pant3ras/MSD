@@ -27,7 +27,7 @@ public class Manager implements Serializable {
 	private String managerEmail;
 	//-----------------------------------------
 	//Relationship between manager and benefits
-
+/*
 	@OneToMany(mappedBy="manager")
 	private Set<Benefits> mngName;
 
@@ -36,7 +36,7 @@ public class Manager implements Serializable {
 	}
 	public void setStudName(Set<Benefits> mngName) {
 		this.mngName = mngName;
-	}
+	}*/
 	//--------------------------------------
 	
 

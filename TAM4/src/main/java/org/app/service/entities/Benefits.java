@@ -27,10 +27,10 @@ public class Benefits implements Serializable {
 	private Intern intern;
 	
 	//relationship between Benefits and Manager
-	@ManyToOne
+/*	@ManyToOne
 	@JoinColumn(name="benefit_mng", nullable=false)
 	private Manager manager;
-	
+	*/
 	private static final long serialVersionUID = 1L;
 
 	public Benefits() {
@@ -38,8 +38,10 @@ public class Benefits implements Serializable {
 	} 
 	
 	//to be deleted
-	public Benefits(Object object, String string) {
-		// TODO Auto-generated constructor stub
+	public Benefits(Integer benefitID, String benefitName, String benefitDescription) {
+		this.benefitID = benefitID;
+		this.benefitName = benefitName;
+		this.benefitDescription = benefitDescription;
 	}
 	//if the test work
 	

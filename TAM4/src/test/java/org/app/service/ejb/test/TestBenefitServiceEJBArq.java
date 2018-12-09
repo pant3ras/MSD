@@ -16,28 +16,31 @@ import org.junit.FixMethodOrder;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.app.service.entities.Benefits;
+import org.app.service.entities.EntityBase;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.junit.Test;
 import org.app.patterns.EntityRepository;
 import org.app.service.ejb.BenefitServiceEJB;
 import org.app.service.ejb.BenefitsService;
+import org.app.service.ejb.DataService;
+import org.app.service.entities.Benefits;;
 
 @RunWith(Arquillian.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestBenefitServiceEJBArq {
 	private static Logger logger = Logger.getLogger(TestBenefitServiceEJBArq.class.getName());
 	@EJB
-	private static BenefitsService service;
+	private BenefitsService service;
 	//Arquillian infrastructure
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}	
-	
+/*	
 	@Deployment
 	public static Archive<?> createDeploymet() {
 		return ShrinkWrap
-				.create(WebArchive.class, "msd-test.war")
+				.create(WebArchive.class, "tam4test.war")
 				//.addPackage(Benefits.class.getPackage())
 				.addPackage(EntityRepository.class.getPackage())
 				.addClass(BenefitsService.class)
@@ -46,6 +49,18 @@ public class TestBenefitServiceEJBArq {
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 //				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
 	}
+*/	
+	@Deployment
+	public static Archive<?> createDeployment() {
+	        return ShrinkWrap
+	                .create(WebArchive.class, "msd-test.war")
+	                .addPackage(EntityRepository.class.getPackage())
+	                .addPackage(BenefitsService.class.getPackage())
+	                .addPackage(Benefits.class.getPackage())
+	                .addAsResource("META-INF/persistence.xml")
+	                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+	   }
+
 
 	@Test
 	public void test1_GetMessage() {
@@ -69,8 +84,8 @@ public class TestBenefitServiceEJBArq {
 	logger.info("Debug:: Junit TESTING: testAddBenefit ....");
 	
 	Integer benefitToAdd = 3;
-	for (int i=0; i <= benefitToAdd; i++) {
-		service.addBenefit(new Benefits(null, "Benefit_" + (100+i)));
+	for (int i=0; i <= benefitToAdd; i++) { 
+		service.addBenefit(new Benefits(benefitToAdd, "Benefit_" + (100+i), "O descriere smechera"));
 		// BenefitDataService.addBenefits(new Benefits(null, "Benefit_" + (100+i)));
 	}
 	Collection<Benefits> benefits = service.getBenefits();
