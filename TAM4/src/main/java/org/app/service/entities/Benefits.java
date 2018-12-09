@@ -23,7 +23,7 @@ public class Benefits implements Serializable {
 	
 	// relationship between Benefits and Intern
 	@ManyToOne
-	@JoinColumn(name="benefit_int", nullable=false)
+	@JoinColumn(name="benefit_int", nullable=true)
 	private Intern intern;
 	
 	//relationship between Benefits and Manager
@@ -38,10 +38,11 @@ public class Benefits implements Serializable {
 	} 
 	
 	//to be deleted
-	public Benefits(Integer benefitID, String benefitName, String benefitDescription) {
+	public Benefits(int benefitID, String benefitName, String benefitDescription, Intern intern) {
 		this.benefitID = benefitID;
 		this.benefitName = benefitName;
 		this.benefitDescription = benefitDescription;
+		this.intern = intern;
 	}
 	//if the test work
 	
