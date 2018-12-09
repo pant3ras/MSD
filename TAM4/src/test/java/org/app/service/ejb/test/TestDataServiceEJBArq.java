@@ -42,7 +42,7 @@ public class TestDataServiceEJBArq {
 	                .addAsResource("META-INF/persistence.xml")
 	                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 	   }
-	
+
 	@Test
 	public void test() {
 		logger.info("DEBUG: Junit TESTING ...");

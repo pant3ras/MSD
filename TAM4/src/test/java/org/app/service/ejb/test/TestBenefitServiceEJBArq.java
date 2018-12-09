@@ -11,39 +11,46 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.app.service.entities.Benefits;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.junit.Test;
+import org.app.patterns.EntityRepository;
 import org.app.service.ejb.BenefitServiceEJB;
 import org.app.service.ejb.BenefitsService;
 
 @RunWith(Arquillian.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-
 public class TestBenefitServiceEJBArq {
-	private static Logger logger = 
-			Logger.getLogger(TestBenefitServiceEJBArq.class.getName());
+	private static Logger logger = Logger.getLogger(TestBenefitServiceEJBArq.class.getName());
 	@EJB
 	private static BenefitsService service;
 	//Arquillian infrastructure
+	
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}	
+	
 	@Deployment
 	public static Archive<?> createDeploymet() {
 		return ShrinkWrap
-				.create(WebArchive.class, "TAM4-test.war")
-				.addPackage(Benefits.class.getPackage())
+				.create(WebArchive.class, "msd-test.war")
+				//.addPackage(Benefits.class.getPackage())
+				.addPackage(EntityRepository.class.getPackage())
 				.addClass(BenefitsService.class)
 				.addClass(BenefitServiceEJB.class)
 				.addAsResource("META-INF/persistence.xml")
-				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+//				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
 	}
-	
+
 	@Test
 	public void test1_GetMessage() {
 		logger.info("DEBUG: Junit TESTING: getMessage ....");
-		String response = service.getMessage();
+		String response = service.sayRest();
 		//String response = BenefitDataService.getMessage();
 		assertNotNull("Data Service Failed!!", response);
 		logger.info("DEBUG: EJB response ..." + response);

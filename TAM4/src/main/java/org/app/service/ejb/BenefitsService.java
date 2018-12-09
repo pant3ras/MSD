@@ -4,13 +4,15 @@ import java.util.Collection;
 
 import javax.ejb.Remote;
 
+import org.app.patterns.EntityRepository;
 import org.app.service.entities.Benefits;
 
 //Implement Simple CRUD
 
 @Remote
-public interface BenefitsService {
+public interface BenefitsService extends EntityRepository<Benefits> {
 //Create or Update
+	
 	Benefits addBenefit(Benefits benefitToAdd);
 	
 //Delete
@@ -25,6 +27,4 @@ public interface BenefitsService {
 	
 //Others
 	String sayRest();
-
-	String getMessage();
 }
