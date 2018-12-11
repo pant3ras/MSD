@@ -42,7 +42,11 @@ public class TestDataServiceEJBArq {
 	                .addAsResource("META-INF/persistence.xml")
 	                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 	   }
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> branch 'master' of https://github.com/pant3ras/MSD
 	@Test
 	public void test() {
 		logger.info("DEBUG: Junit TESTING ...");
