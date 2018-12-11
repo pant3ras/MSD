@@ -29,7 +29,7 @@
 		
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-<<<<<<< HEAD
+		<<<<<<< HEAD
 		
 		<jdk.system.path>C:\Program Files\Java\jdk1.8.0_191</jdk.system.path>
 		
