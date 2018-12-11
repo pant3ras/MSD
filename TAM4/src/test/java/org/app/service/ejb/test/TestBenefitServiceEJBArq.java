@@ -83,7 +83,7 @@ public class TestBenefitServiceEJBArq {
 	public void test3_AddBenefits() {
 	logger.info("Debug:: Junit TESTING: testAddBenefit ....");
 	
-	Integer benefitToAdd = 3;
+	Integer benefitToAdd = 21;
 	for (int i=1; i <= benefitToAdd; i++) { 
 		service.addBenefit(new Benefits(i, "Benefit_" + (100+i), "SevenCard"+i, null));
 		// BenefitDataService.addBenefits(new Benefits(null, "Benefit_" + (100+i)));

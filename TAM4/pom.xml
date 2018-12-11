@@ -116,6 +116,12 @@
 			<artifactId>resteasy-jackson-provider</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- solution from web -->
+		<dependency>
+		<groupId>org.jboss.resteasy</groupId>
+		<artifactId>resteasy-multipart-provider</artifactId>
+		</dependency>
+		
 	</dependencies>
 	
 	<build>

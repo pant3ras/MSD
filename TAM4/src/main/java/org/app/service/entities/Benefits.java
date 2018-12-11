@@ -3,11 +3,17 @@ package org.app.service.entities;
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Entity implementation class for Entity: Benefits
- *
  */
+@XmlRootElement(name="benefits")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 @Table(name="Benefits")
 
@@ -45,7 +51,7 @@ public class Benefits implements Serializable {
 		this.intern = intern;
 	}
 	//if the test work
-	
+	@XmlElement
 	public int getBenefitID() {
 		return this.benefitID;
 	}
@@ -53,6 +59,7 @@ public class Benefits implements Serializable {
 	public void setBenefitID(int benefitID) {
 		this.benefitID = benefitID;
 	}   
+	@XmlElement
 	public String getBenefitDescription() {
 		return this.benefitDescription;
 	}
@@ -60,6 +67,7 @@ public class Benefits implements Serializable {
 	public void setBenefitDescription(String benefitDescription) {
 		this.benefitDescription = benefitDescription;
 	}   
+	@XmlElement
 	public String getBenefitName() {
 		return this.benefitName;
 	}
@@ -67,12 +75,26 @@ public class Benefits implements Serializable {
 	public void setBenefitName(String benefitName) {
 		this.benefitName = benefitName;
 	}
-   
+	@XmlElementWrapper(name = "intern")
+	@XmlElement(name = "intern")
 	public Intern getIntern() {
 		return intern;
 		}
 //	public Intern setIntern() {
 //		this.Intern = intern;
 //	}
+	
+	/*Rest resurces
+	 *Sprint 4 - part 3 
+	 */
+	 public static String BASE_URL = "http://localhost:8080/TAM4/rest/benefits";
+	 @XmlElement(name = "link")
+	 public AtomLink getLink() throws Exception {
+		 String restUrl = BASE_URL + this.getBenefitID();
+		 return new AtomLink(restUrl, "get-benefit");
+	 }
+	 
+	 public void setLink(AtomLink link){}
+	
 	}
 
