@@ -122,12 +122,12 @@ public class Intern implements Serializable {
 		this.studentSurname = studentSurname;
 	}
 	
-	@XmlElementWrapper(name = "internship")
+
 	@XmlElement(name = "internship")
 	public Internship getInternship(){
 		return internship;
 	}
-	@XmlElementWrapper(name = "project")
+
 	@XmlElement(name = "project")
 	public Project getProject() {
 		return project;

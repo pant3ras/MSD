@@ -75,7 +75,7 @@ public class Benefits implements Serializable {
 	public void setBenefitName(String benefitName) {
 		this.benefitName = benefitName;
 	}
-	@XmlElementWrapper(name = "intern")
+
 	@XmlElement(name = "intern")
 	public Intern getIntern() {
 		return intern;
