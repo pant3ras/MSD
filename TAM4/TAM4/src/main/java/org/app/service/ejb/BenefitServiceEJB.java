@@ -149,7 +149,7 @@ public BenefitServiceEJB() {
 		return super.toCollection();
 	}
 	/*********************************************************************/
-	@DELETE @Path("/{id}") //http://localhost:8080/TAM4/rest/benefits 	REST-resource: benefits-collection
+	@DELETE @Path("/{id}") //TAM4/data/benefits 	REST-resource: benefits-collection
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public void remove(@PathParam("id") Integer id) {
 		logger.info("***DEBUG: called REMOVE - ByID() for benefit >>>>>>>>>>>>> simplified ! + id");
