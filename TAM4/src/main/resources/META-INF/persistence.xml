@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="MSD">
+	<persistence-unit name="TAM4">
 		<jta-data-source>java:/ORCLFeaaMSD</jta-data-source>
-<<<<<<< HEAD
+		
+
 		
       <properties>
          <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>  -->
          <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
          <property name="hibernate.hbm2ddl.auto" value="update"/>
-=======
-<<<<<<< HEAD
+
 		
-      <properties>
-         <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>  -->
-         <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
-         <property name="hibernate.hbm2ddl.auto" value="update"/>
-=======
-		<class>org.app.service.entities.Benefits</class>
-		<class>org.app.service.entities.Intern</class>
-		<class>org.app.service.entities.Internship</class>
-		<class>org.app.service.entities.Manager</class>
-		<class>org.app.service.entities.Project</class>
 		
-      <properties>
+    
          <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>  -->
          <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
         <!--   <property name="hibernate.hbm2ddl.auto" value="create-drop"/>-->
          <property name="hibernate.hbm2ddl.auto" value="update"/> 
->>>>>>> branch 'master' of https://github.com/pant3ras/MSD
->>>>>>> branch 'master' of https://github.com/pant3ras/MSD
+
       </properties>		
       		
 	</persistence-unit>

@@ -3,6 +3,7 @@ package org.app.service.entities;
 import java.io.Serializable;
 import java.lang.String;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -28,14 +29,15 @@ public class Intern implements Serializable {
 	private int studentID;
 	
 	@Column(name="Stud_Int_Start_date")
-	private Date stud_int_start_date;
+	private LocalDate stud_int_start_date;
 	
 	@Column(name="Stud_Int_End_date")
-	private Date stud_int_end_date;
+	private LocalDate stud_int_end_date;
 	
 	@Column(name="Student_Surname")
 	private String studentSurname;
 	
+	@Column(name="Student_Name")
 	private String studentName;
 
 	//---------------------------------------
@@ -51,6 +53,13 @@ public class Intern implements Serializable {
 	}
 	public void setStudName(List<Benefits> studName) {
 		this.studName = studName;
+	}
+	public Intern(int studentID, LocalDate stud_int_start_date, LocalDate stud_int_end_date, String studentSurname, String studentName) {
+		this.studentID = studentID;
+		this.stud_int_start_date = stud_int_start_date;
+		this.stud_int_end_date = stud_int_end_date; 
+		this.studentSurname = studentSurname;
+		this.studentName = studentName;
 	}
 //-----------------------	
 	//--------------------------------------
@@ -90,19 +99,19 @@ public class Intern implements Serializable {
 		this.studentID = studentID;
 	}  
 	@XmlElement
-	public Date getStud_int_start_date() {
+	public LocalDate getStud_int_start_date() {
 		return this.stud_int_start_date;
 	}
 
-	public void setStud_int_start_date(Date stud_int_start_date) {
+	public void setStud_int_start_date(LocalDate stud_int_start_date) {
 		this.stud_int_start_date = stud_int_start_date;
 	} 
 	@XmlElement
-	public Date getStud_int_end_date() {
+	public LocalDate getStud_int_end_date() {
 		return this.stud_int_end_date;
 	}
 
-	public void setStud_int_end_date(Date stud_int_end_date) {
+	public void setStud_int_end_date(LocalDate stud_int_end_date) {
 		this.stud_int_end_date = stud_int_end_date;
 	} 
 	@XmlElement

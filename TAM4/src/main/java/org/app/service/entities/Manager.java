@@ -5,11 +5,18 @@ import java.lang.String;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Entity implementation class for Entity: Manager
  *
  */
+
+@XmlRootElement(name="manager")
+@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 @Table(name="Manager")
 
@@ -25,21 +32,8 @@ public class Manager implements Serializable {
 	
 	@Column(name="Manager_Email")
 	private String managerEmail;
-	//-----------------------------------------
-	//Relationship between manager and benefits
-/*
-	@OneToMany(mappedBy="manager")
-	private Set<Benefits> mngName;
 
-	public Set<Benefits> getMngNames() {
-		return mngName;
-	}
-	public void setStudName(Set<Benefits> mngName) {
-		this.mngName = mngName;
-	}*/
-	//--------------------------------------
 	
-
 	@OneToOne private Project project;
 	
 	@OneToOne private Internship internship;
@@ -62,6 +56,13 @@ public class Manager implements Serializable {
 	public Manager() {
 		super();
 	}   
+	
+	public Manager(int managerID, String managerName, String managerEmail) {
+		this.managerID = managerID;
+		this.managerName = managerName;
+		this.managerEmail = managerEmail;
+		
+	}
 	public int getManagerID() {
 		return this.managerID;
 	}
@@ -83,5 +84,14 @@ public class Manager implements Serializable {
 	public void setManagerEmail(String managerEmail) {
 		this.managerEmail = managerEmail;
 	}
+	
+	 public static String BASE_URL = "http://localhost:8080/TAM4/rest/manager";
+	 @XmlElement(name = "link")
+	 public AtomLink getLink() throws Exception {
+		 String restUrl = BASE_URL + this.getManagerID();
+		 return new AtomLink(restUrl, "get-manager");
+	 }
+	 
+	 public void setLink(AtomLink link){}
    
 }

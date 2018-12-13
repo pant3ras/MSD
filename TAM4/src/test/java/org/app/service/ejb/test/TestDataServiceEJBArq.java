@@ -42,18 +42,11 @@ public class TestDataServiceEJBArq {
 	                .addAsResource("META-INF/persistence.xml")
 	                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 	   }
-<<<<<<< HEAD
-	
-=======
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> branch 'master' of https://github.com/pant3ras/MSD
->>>>>>> branch 'master' of https://github.com/pant3ras/MSD
+
 	@Test
 	public void test() {
-		logger.info("DEBUG: Junit TESTING ...");
+		logger.info("DEBUG: Junit TESTING");
 		String response = service.sayRest();
 		assertNotNull("Data Service failed!", response);
 		logger.info("DEBUG: EJB Response ..." + response);
